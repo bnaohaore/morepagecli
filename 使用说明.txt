@@ -5,4 +5,4 @@
     那么设置为 publicPath：'/test/webpack多页打包/list' 打包上线时改为线上绝对路径即可如:www.zaicd.com/public/webpack多页打包/list
 // 在config.js 引用 公共 框架 或者库
 // 在 每个 html文件里面的js文件引用私有的库
-// 自行配置 url-loader limit 比如 limit=8000 表示转义8kb以下图片为bst64编码55555
+// 自行配置 url-loader limit 比如 limit=8000 表示转义8kb以下图片为bst64编码
