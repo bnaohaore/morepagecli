@@ -1,5 +1,5 @@
 # morepagecli
-
+//使用前 npm install 安装依赖
 //本项目为webpack2.0+ vue 多页面自动构建打包配置+开发环境  //更多功能敬请期待 //作者很菜qq:534111616 wx:b83287403
 //打包指令 npm run build
 // 虚拟运行指令 npm run dev
