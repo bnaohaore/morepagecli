@@ -6,7 +6,7 @@ var glob = require('glob');
 var entries = getEntry('./src/html/**/*.js'); // 获得入口js文件
 
 
-/*var allcss=new ExtractTextPlugin('css/commons.css');*/
+var allcss=new ExtractTextPlugin('css/commons.css');
 var allless=new ExtractTextPlugin('css/commons_less.css');
 //使用注意设置环境变量 NODE_PATH 为npm root -g 的值
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
   output: {  //文件输出配置
     path:path.resolve(__dirname, './dist'),  //打包文件路径
     filename: 'js/[name].js',  //打包文件名称build.js 多页使用[name entry为对象时的属性名][hash 每次打包的编码][chunkhash 每个文件单独的编码].js
-    publicPath:'/webpack多页打包/dist/'  //引用占位符 不设置的话默认为相对路径
+    publicPath:'/pages_vue_cli/dist/'  //引用占位符 不设置的话默认为相对路径
   },
     module: {  //loader配置
 
@@ -42,13 +42,13 @@ module.exports = {
               
           {
             test: /\.css$/,
-            use:/*allcss.extract(['css-loader', 'postcss-loader' ])*/
+            use:allcss.extract(['css-loader', 'postcss-loader' ])
 
-                [
+             /*   [
                  "style-loader",
                  "css-loader?importLoaders=1",
                  "postcss-loader"
-            ]
+            ]*/
           },
           {
             test: /\.js$/,
@@ -98,6 +98,7 @@ module.exports = {
       new webpack.optimize.CommonsChunkPlugin({
           name: 'commons', // 这公共代码的chunk名为'commons'
           filename: './js/[name].bundle.js', // 生成后的文件名，虽说用了[name]，但实际上就是'commons.bundle.js'了
+          chunks: entries,  // chunks是需要提取的模块
           minChunks: 2 // 设定要有4个chunk（即4个页面）加载的js模块才会被纳入公共代码。这数目自己考虑吧，我认为3-5比较合适。
       }),
       new webpack.DefinePlugin({
@@ -111,9 +112,10 @@ module.exports = {
               warnings: false    //忽略警告,要不然会有一大堆的黄色字体出现……
           }
       }),
+      
       // 配置提取出的样式文件
       allless,
-     /* allcss,*/
+      allcss,
       new ExtractTextPlugin('css/[name].css') //提取vue里面的css
      /* new ExtractTextPlugin('[name].[contenthash].css'),*/ //抽取css
 /*      new CompressionWebpackPlugin({ //gzip 压缩
