@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "dev": "node server/bin/webpack-dev-server.js  --port 8088 --host --open",
+    "dev": "webpack-dev-server.js  --port 8088 --host --open",
     "build": "webpack --progress --hide-modules"
   },
   "author": "",
@@ -38,7 +38,8 @@
     "vue-loader": "^11.3.3",
     "vue-style-loader": "^2.0.4",
     "vue-template-compiler": "^2.2.5",
-    "webpack": "^2.3.2"
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
