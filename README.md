@@ -1,6 +1,7 @@
 # morepagecli
 webpack2.0+vue 的多页开发环境打包言简意赅
 //默认ui框架为mint-ui ------  http://mint-ui.github.io/docs/#!/zh-cn2
+
 //本项目为 vue 多页面自动构建打包配置+开发环境  //更多功能敬请期待 //作者很菜qq:534111616 wx:b83287403
 //打包指令 npm run build
 // 虚拟运行指令 npm run dev
@@ -9,3 +10,8 @@ webpack2.0+vue 的多页开发环境打包言简意赅
                           // 在config.js 引用 公共 框架 或者库
 // 在 每个 html文件里面的js文件引用私有的库
 // 自行配置 url-loader limit 比如 limit=8000 表示转义8kb以下图片为bst64编码
+
+// <h3>12/4/19 更新内容</h3> 
+<p>1优化打包资源减小体积 </p>
+<p>2 优化webpack-dev-server插件新增域名解析便于 手机浏览</p>
+<p>3 添加 默认ui框架</p>
