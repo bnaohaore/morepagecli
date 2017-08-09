@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="fiex-div">地444方郭德纲5555cxxvxg5555</div>
-        <span></span>adASDAFSDFDSGS
+        <div class="fiex-div">csfgsfg1大锅饭大概多少11地444方郭德纲5555cxxvxg5555</div>
+        <span></span>adASDAFSDFDSGSdfgdfgsdf
         {{name}}34543534534
 
         改变颜色

@@ -13,9 +13,9 @@ var icha='../';
 var api_url=(apis=='uat') ? path.resolve(__dirname, './src/api_js/api_uat.js') : (apis=='local') ? path.resolve(__dirname, './src/api_js/api_local.js') : path.resolve(__dirname, './src/api_js/api_pro.js');
 var file_name=(apis=='uat') ? 'dist_uat' : (apis=='local') ? 'dist_local' : 'dist_pro';
 if(ichas=='dev'){
-    icha='/'
+    icha='/'+file_name+'/' /*path.resolve(__dirname, file_name)*/
 }
-
+console.log(path.resolve(__dirname, './'))
 //使用注意设置环境变量 NODE_PATH 为npm root -g 的值
 module.exports = {
   entry: entries,  //['./src/js/index.js','./src/js/set.js'] 打包多个js在一起  '{page1:['ss.js','./js/aa.js'],page2:'./js/com.js'} 多页应用，分开打包'
