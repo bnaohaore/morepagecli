@@ -3,8 +3,8 @@ webpack2.0+vue 的多页开发环境打包言简意赅<br>
 //默认ui框架为mint-ui ------  http://mint-ui.github.io/docs/#!/zh-cn2<br>
 
 //本项目为 vue 多页面自动构建打包配置+开发环境  //更多功能敬请期待 //qq:534111616 wx:b83287403<br>
-
-// 虚拟运行生产环境 npm run dev   //dist_pro
+//打包生产环境 npm run build-pro
+// 虚拟运行生产环境 npm run dev-pro   //dist_pro
 
 
 //打包本地环境 npm run build-local

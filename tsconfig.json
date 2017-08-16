@@ -1,0 +1,146 @@
+
+{
+  "data":[
+    {
+      "id":"tzls0",
+      "question":"离(退)休类"
+    },
+    {
+      "id":"tzls00",
+      "parent_id": "tzls0",
+      "title": "离休人员异地安置入户  "
+    },
+    {
+      "id":"tzls0_1",
+      "parent_id": "tzls00",
+      "question": "您是否是经省、市老干局批准安置到我市的离休干部？ "
+    },
+    {
+      "id":"tzls0_1_3",
+      "parent_id": "tzls0_1",
+      "title": "是 "
+    },
+    {
+      "id":"tzls0_1_3_4",
+      "parent_id":"tzls0_1_3",
+      "question":"现已办理好了离（退）休手续？"
+    },
+    {
+      "id":"tzls0_1_3_4_5",
+      "parent_id":"tzls0_1_3_4",
+      "title":"是"
+    },
+    {
+      "parent_id":"tzls0_1_3_4_5",
+      "id":"tzls0_1_3_4_5_6",
+      "question":"您在入户地是否有住房？"
+    },
+    {
+      "parent_id":"tzls0_1_3_4_5_6",
+      "id":"tzls0_1_3_4_5_6_7",
+      "title":"有合法房屋产权的房屋"
+    },
+    {
+      "parent_id":"tzls0_1_3_4_5_6_7",
+      "id":"tzls0_1_3_4_5_6_7_8_9",
+      "question":"这套住房的所有权人是谁？"
+    },
+    {
+      "parent_id":"tzls0_1_3_4_5_6_7_8_9",
+      "id":"tzls0_1_3_4_5_6_7_8_9_10",
+      "title":"是本人或配偶",
+      "typle":"0"
+    },
+    {
+      "parent_id":"tzls0_1_3_4_5_6_7_8_9",
+      "id":"tzls0_1_3_4_5_6_7_8_9_11",
+      "title":"父母或配偶父母",
+      "typle":"0"
+    },
+    {
+      "parent_id":"tzls0_1_3_4_5_6_7_8_9",
+      "id":"tzls0_1_3_4_5_6_7_8_9_12",
+      "title":"子女",
+      "typle":"0"
+    },
+    {
+      "parent_id":"tzls0_1_3_4_5_6_7_8_9",
+      "id":"tzls0_1_3_4_5_6_7_8_9_13",
+      "title":"孙子女或外孙子女",
+      "typle":"0"
+    },
+    {
+      "parent_id":"tzls0_1_3_4_5_6_7_8_9",
+      "id":"tzls0_1_3_4_5_6_7_8_9_14",
+      "title":"其他",
+      "typle":"1"
+    },
+    {
+      "parent_id":"tzls0_1_3_4_5_6",
+      "id":"tzls0_1_3_4_5_6_7_8_9",
+      "title":"租赁本单位的成套自管公房(单位对该房屋拥有所有权)"
+    },
+    {
+      "parent_id":"tzls0_1_3_4_5_6",
+      "id":"tzls0_1_3_4_5_6_7_8_9",
+      "title":"租赁房管部门成套直管国有公房"
+    },
+    {
+      "parent_id":"tzls0_1_3_4_5_6",
+      "id":"tzls0_1_3_4_5_6_7_8_9",
+      "title":"其他",
+      "typle":"1"
+    },
+    {
+      "id":"tzls0_1_3_4_6",
+      "parent_id":"tzls0_1_3_4",
+      "title":"否",
+      "typle":"1"
+    },
+    {
+      "id":"tzls0_1_3",
+      "parent_id": "tzls0_1",
+      "title": "否",
+      "typle":"1"
+    },
+    {
+      "id":"tzls0_2",
+      "parent_id": "tzls0",
+      "title": "离退休人员回原籍  "
+    },
+    {
+      "parent_id": "tzls0_2",
+      "id":"tzls0_2_3",
+      "question": "参加工作前户籍是否在成都？"
+    },
+    {
+      "parent_id": "tzls0_2_3",
+      "id":"tzls0_2_3_4",
+      "title": "是"
+    },
+    {
+      "parent_id": "tzls0_2_3_4",
+      "id":"tzls0_2_3_4_5",
+      "question": "现已办理好了离（退）休手续？"
+    },
+    {
+      "parent_id": "tzls0_2_3_4_5",
+      "id":"tzls0_1_3_4_5",
+      "title": "是"
+    },
+    {
+      "parent_id": "tzls0_2_3_4_5",
+      "id":"tzls0_2_3_4_5_7",
+      "title": "否",
+      "typle":"1"
+    },
+
+    {
+      "parent_id": "tzls0_2_3",
+      "id":"tzls0_2_3_5",
+      "title": "否",
+      "typle":"1"
+    }
+  ]
+}
+
