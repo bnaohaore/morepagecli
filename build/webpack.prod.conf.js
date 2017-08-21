@@ -1,14 +1,14 @@
-var path = require('path');
-var utils = require('./utils');
-var webpack = require('webpack');
-var config = require('../config');
-var merge = require('webpack-merge');
-var baseWebpackConfig = require('./webpack.base.conf');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
-var ImageminPlugin = require('imagemin-webpack-plugin').default;
+var path = require('path')
+var utils = require('./utils')
+var webpack = require('webpack')
+var config = require('../config')
+var merge = require('webpack-merge')
+var baseWebpackConfig = require('./webpack.base.conf')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var glob = require('glob');
 var env = config.build.env;
 
 var webpackConfig = merge(baseWebpackConfig, {
@@ -49,7 +49,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
+/*    new HtmlWebpackPlugin({
       filename: config.build.index,
       template: 'index.html',
       inject: true,
@@ -62,15 +62,14 @@ var webpackConfig = merge(baseWebpackConfig, {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
-    }),
+    }),*/
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: function (module, count) {
         // any required modules inside node_modules are extracted to vendor
         return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
+          module.resource && /\.js$/.test(module.resource) &&
           module.resource.indexOf(
             path.join(__dirname, '../node_modules')
           ) === 0
@@ -90,14 +89,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ]),
-    // Make sure that the plugin is after any plugins that add images
-    new ImageminPlugin({
-      disable: process.env.NODE_ENV !== 'production', // Disable during development
-      pngquant: {
-        quality: '95-100'
-      }
-    })
+    ])
   ]
 })
 
@@ -120,8 +112,44 @@ if (config.build.productionGzip) {
 }
 
 if (config.build.bundleAnalyzerReport) {
-  var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
 module.exports = webpackConfig;
+
+
+
+function getEntry(globPath) {
+  var entries = {},
+    basename, tmp, pathname;
+
+  glob.sync(globPath).forEach(function (entry) {
+    basename = path.basename(entry, path.extname(entry));
+    tmp = entry.split('/').splice(-3);
+    pathname = tmp.splice(0, 1) + '/' + basename; // 正确输出js和html的路径
+    entries[pathname] = entry;
+  });
+
+  return entries;
+}
+var pages = getEntry('./src/html/**/*.html');
+for (var pathname in pages) {
+  // 配置生成的html文件，定义路径等
+  var conf = {
+    filename: pathname + '.html',
+    template: pages[pathname],   // 模板路径
+    inject: true              // js插入位置
+
+  };
+
+
+  if (pathname in module.exports.entry) {
+    conf.chunks = ['manifest', 'vendor',pathname];
+    conf.hash = true;
+  }
+
+  module.exports.plugins.push(new HtmlWebpackPlugin(conf));
+}
+
+

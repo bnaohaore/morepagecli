@@ -11,14 +11,13 @@ if(yargs_option=='dev'){
 } else if(yargs_option=='local'){
   files_name='dist_local'
 }
-
 module.exports = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../'+files_name+'/index.html'),
     assetsRoot: path.resolve(__dirname, '../'+files_name+''),
-    assetsSubDirectory: './static',
-    assetsPublicPath: './',
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '../',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -34,19 +33,11 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
+    port: 8081,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      '/api':{
-        target:'http://192.168.1.75:8080/',
-        changeOrigin:true,
-        pathRewrite:{
-          '^/api':'/'
-        }
-      }
-    },
+    proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
@@ -54,4 +45,4 @@ module.exports = {
     // just be aware of this issue when enabling this option.
     cssSourceMap: false
   }
-}
+};

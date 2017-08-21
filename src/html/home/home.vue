@@ -1,6 +1,6 @@
 <template>
     <div>
-      {{name}}
+      我是home
     </div>
 </template>
 
@@ -10,12 +10,9 @@
         name: '',
         components: {
             //模块
-
         },
         data(){
-            return {
-              name:'我是index反反复复'
-            }
+            return {}
         },
         mounted(){
 
