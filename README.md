@@ -19,3 +19,6 @@ webpack2.0+vue 的多页开发环境打包言简意赅<br>
 
 <p>默认ui框架 mint-ui</p>
 <p>增加环境变量配置 打包/测试不同环境</p>
+
+因无入口页面所以启动项目后需要手动输入页面路径进行访问
+ http://localhost:8081/html/home.html
