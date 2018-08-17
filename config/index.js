@@ -17,7 +17,6 @@ if(yargs_option=='dev'){
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -50,9 +49,8 @@ module.exports = {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../'+files_name+'/index.html'),
     assetsRoot: path.resolve(__dirname, '../'+files_name+''),
-
     assetsSubDirectory: 'static',
-    assetsPublicPath: '../',
+    assetsPublicPath: '../../',
 
     /**
      * Source Maps

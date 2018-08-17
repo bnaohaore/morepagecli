@@ -14,19 +14,23 @@ var glob = require('glob');
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 function getEntry(globPath) {
-  var entries = {}, basename, tmp, pathname;
+  var entries = {},
+    basename, tmp, pathname;
 
   glob.sync(globPath).forEach(function (entry) {
     basename = path.basename(entry, path.extname(entry));
-    tmp = entry.split('/').splice(-3);
-    pathname = tmp.splice(0, 1) + '/' + basename; // 正确输出js和html的路径
+
+    tmp = entry.split('/').splice(2,2).join('/');
+
+    pathname = tmp + '/' + basename; // 正确输出js和html的路径
+
     entries[pathname] = entry;
   });
 
   return entries;
 }
-var pages = getEntry('./src/html/**/*.html');
-
+var pages = getEntry('./src/html/**/**/*.html');
+var htmlppp=[];
 for (var pathname in pages) {
 
 
@@ -42,7 +46,7 @@ for (var pathname in pages) {
     conf.hash = true;
   }
 
-   var htmlppp=new HtmlWebpackPlugin(conf)
+    htmlppp.push(new HtmlWebpackPlugin(conf))
 }
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -88,7 +92,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true
     }),*/
-    htmlppp,
+    ...htmlppp,
     // copy custom static assets
     new CopyWebpackPlugin([
       {

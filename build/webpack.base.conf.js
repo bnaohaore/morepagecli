@@ -4,8 +4,8 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 var glob = require('glob');
-var entries=getEntry('./src/html/**/*.js');
-console.log(entries)
+var entries=getEntry('./src/html/**/**/*.js');
+console.log(entries);
 const yargs = require("yargs");
 console.log(yargs.argv);
 var api_url='';
@@ -103,7 +103,7 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty'
   }
-}
+};
 
 function getEntry(globPath) {
   var entries = {},
@@ -111,8 +111,11 @@ function getEntry(globPath) {
 
   glob.sync(globPath).forEach(function (entry) {
     basename = path.basename(entry, path.extname(entry));
-    tmp = entry.split('/').splice(-3);
-    pathname = tmp.splice(0, 1) + '/' + basename; // 正确输出js和html的路径
+
+    tmp = entry.split('/').splice(2,2).join('/');
+
+    pathname = tmp + '/' + basename; // 正确输出js和html的路径
+
     entries[pathname] = entry;
   });
 

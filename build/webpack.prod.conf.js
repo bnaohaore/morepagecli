@@ -142,7 +142,7 @@ if (config.build.bundleAnalyzerReport) {
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
-module.exports = webpackConfig
+module.exports = webpackConfig;
 
 function getEntry(globPath) {
   var entries = {},
@@ -150,15 +150,18 @@ function getEntry(globPath) {
 
   glob.sync(globPath).forEach(function (entry) {
     basename = path.basename(entry, path.extname(entry));
-    tmp = entry.split('/').splice(-3);
-    pathname = tmp.splice(0, 1) + '/' + basename; // 正确输出js和html的路径
+
+    tmp = entry.split('/').splice(2,2).join('/');
+
+    pathname = tmp + '/' + basename; // 正确输出js和html的路径
+
     entries[pathname] = entry;
   });
 
   return entries;
 }
-var pages = getEntry('./src/html/**/*.html');
-
+var pages = getEntry('./src/html/**/**/*.html');
+console.log(pages)
 for (var pathname in pages) {
   // 配置生成的html文件，定义路径等
   var conf = {

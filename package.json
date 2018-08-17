@@ -7,11 +7,11 @@
   "scripts": {
     "dev": "npm run dev-uat",
     "build": "node build/build.js",
-    "dev-uat": "webpack-dev-server --inline --progress --config  build/webpack.dev.conf.js --open-page=html/index.html --provide=dev",
+    "dev-uat": "webpack-dev-server --inline --progress --config  build/webpack.dev.conf.js --open-page=html/comp1/index.html --provide=dev",
     "build-uat": "node build/build.js --provide=dev",
-    "dev-local": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --open-page=html/index.html  --provide=local",
+    "dev-local": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --open-page=html/comp1/index.html  --provide=local",
     "build-local": "node build/build.js --provide=local",
-    "dev-pro": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --open-page=html/index.html --provide=pro",
+    "dev-pro": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --open-page=html/comp1/index.html --provide=pro",
     "build-pro": "node build/build.js --provide=pro"
   },
   "dependencies": {
